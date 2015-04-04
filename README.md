@@ -20,5 +20,21 @@ curl -X POST --data-binary @NAME_OF_YOUR_FILE.flac --header 'Content-Type: audio
 
 It correctly recognizes for this sample!
 
+# Using CMU PocketSphinx on Ubuntu Trusty 14.04 provisoned using Vagrant
 
+1. git clone https://github.com/cmusphinx/sphinxbase.git
+2. git clone https://github.com/cmusphinx/pocketsphinx.git
+3. Install the above with required packages and libraries
+4. If pocketphinx is correctly installed, run:
+    pocketsphinx_continuous -infile /vagrant/numbers.wav > numbers_without_hmm.txt
+5. The Input data file numbers.wav was generated thus:
 
+  a. Enter a youtube url in http://www.youtube-mp3.org/ to get the mp3.
+  
+  b. Using Audacity convert the generated mp3 from step ( a)to .wav file with these properties
+  
+    * Load the file and then select "Split track from the menu" for Single mono channel
+    * Select Project rate of 16,000 Hz.
+    * From file menu, select Export selected audio and save it as 16-bit PCM wav format file 'numbers.wav'
+
+As, seen in step 4, above the transcription is captured in the output file 'numbers_without_hmm.txt'
